@@ -1,44 +1,28 @@
 <!DOCTYPE html>
 <html lang="he">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>העתקת טקסט</title>
-    <script>
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert("הטקסט הועתק!");
-            }).catch(err => {
-                console.error("שגיאה בהעתקה", err);
-            });
-        }
-    </script>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-        a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        a:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>קישור לגיטהאב עם העתקת טקסט</title>
 </head>
 <body>
-    <div>
-        <p id="text">ITSPRINGSELL</p>
-        <a href="#" onclick="copyText(document.getElementById('text').innerText); return false;">לחץ כאן להעתקה</a>
-    </div>
+  <!-- קישור לגיטהאב -->
+  <a href="https://github.com/username/repository" target="_blank">בקר בפרויקט שלי בגיטהאב</a>
+  
+  <p>העתק את הטקסט הזה:</p>
+  
+  <!-- טקסט להעתקה -->
+  <input type="text" value="ITSPRINGSELL" id="myInput">
+  <button onclick="copyText()">העתק טקסט</button>
+
+  <script>
+    function copyText() {
+      var copyText = document.getElementById("myInput");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // בשביל דפדפנים ניידים
+      document.execCommand("copy");
+      alert("הטקסט הועתק: " + copyText.value);
+    }
+  </script>
 </body>
 </html>
