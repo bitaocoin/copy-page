@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>העתק טקסט עם לינק</title>
+</head>
+<body>
+  <!-- לינק שמעתיק טקסט -->
+  <a href="javascript:void(0);" onclick="copyText()">העתק טקסט זה</a>
+
+  <script>
+    function copyText() {
+      var textToCopy = "הטקסט שברצונך להעתיק"; // ITSPRINGSELL
+      var textArea = document.createElement("textarea");
+      textArea.value = textToCopy;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      alert("הטקסט הועתק ללוח!");
+    }
+  </script>
+</body>
+</html>
